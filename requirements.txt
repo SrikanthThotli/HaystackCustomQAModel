@@ -3,7 +3,6 @@ aiosignal==1.2.0
 alabaster==0.7.12
 alembic==1.8.1
 anaconda-client==1.2.2
-anaconda-project==0.10.2
 anyio==3.5.0
 appdirs==1.4.4
 argon2-cffi==21.3.0
