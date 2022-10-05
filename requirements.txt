@@ -124,7 +124,7 @@ iniconfig==1.1.1
 intake==0.6.5
 intervaltree==3.1.0
 ipykernel==6.9.1
-ipython==8.2.0
+ipython<8.0.0
 ipython-genutils==0.2.0
 ipywidgets==7.6.5
 isodate==0.6.1
