@@ -86,7 +86,7 @@ executing==0.8.3
 farm-haystack==1.9.0
 fastjsonschema==2.15.1
 filelock==3.6.0
-flake8==3.9.2
+flake8==5.0.4
 Flask==1.1.2
 fonttools==4.25.0
 frozenlist==1.2.0
