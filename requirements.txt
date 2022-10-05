@@ -8,7 +8,7 @@ appdirs==1.4.4
 argon2-cffi==21.3.0
 argon2-cffi-bindings==21.2.0
 arrow==1.2.2
-astroid==2.6.6
+astroid>=2.11.0
 astropy==5.0.4
 asttokens==2.0.5
 async-timeout==4.0.1
