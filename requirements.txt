@@ -289,7 +289,7 @@ rust==0.1.1
 s3transfer==0.5.0
 scikit-image==0.19.2
 scikit-learn==1.0.2
-scikit-learn-intelex==2021.20220215.102710
+scikit-learn-intelex==2021.7.0
 scipy==1.9.1
 Scrapy==2.6.1
 seaborn==0.11.2
