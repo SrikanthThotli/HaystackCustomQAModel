@@ -82,7 +82,7 @@ elasticsearch==7.10.1
 entrypoints==0.4
 et-xmlfile==1.1.0
 executing==0.8.3
-farm-haystack==1.10.0rc0
+farm-haystack==1.9.0
 fastjsonschema==2.15.1
 filelock==3.6.0
 flake8==3.9.2
