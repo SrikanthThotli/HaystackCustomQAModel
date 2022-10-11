@@ -1,5 +1,5 @@
 beautifulsoup4==4.11.1
-django_haystack==3.2.1
+git+https://github.com/deepset-ai/haystack.git#egg=farm-haystack[colab]
 Flask==2.1.0
 requests==2.27.1
 spacy==3.4.1
