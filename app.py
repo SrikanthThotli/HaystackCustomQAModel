@@ -1,32 +1,27 @@
 import os
 
 import spacy
-from flask import Flask, render_template, jsonify, request
+import streamlit as st
+from components import CustomSearch
 
-from components import BingSearch
+def welcome():
+    return "Welcome all"
 
-app = Flask(__name__)
-# subscription key
-bing_subscription_key = "adca0bb823d44e98a1f14c3c185d7934"
-
-bingSearch = BingSearch(bing_subscription_key)
-
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-
-@app.route('/answer-question', methods=['POST'])
-def analyzer():
-    # question = request.data
-    data = request.get_json()
-    question = data.get('question')
-    print(question)
-    answers = bingSearch.getAnswer(str(question))
-    return jsonify(answers)
-
+def main():
+    st.title ("Custom QA Model about Careers")
+    html_temp = """
+    <h3>Ask me anything about your career</h3>
+    """
+    st. markdown(html_temp,unsafe_allow_html=True)
+    question = st.text_input("Question","Type your question here...")
+    result = ""
+    if st.button("Submit"):
+        customSearch = CustomSearch()
+        result = customSearch.getAnswer(str(question))
+    st.success('The output is {}'.format(result))
+    if st.button("About"):
+        st.text("Lets Learn")
+        st.text("Built with Streamlit")
 
 if __name__ == '__main__':
-    #app.run(host='0.0.0.0', port=5000)
-	app.run()
+	main()
