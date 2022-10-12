@@ -19,13 +19,13 @@ def main():
     <h3>Ask me anything about your career</h3>
     """
     st. markdown(html_temp,unsafe_allow_html=True)
-    question = st.text_input("Question","Type your question here...")
+    question = st.text_input("Question","")
     result = ""
     reader_bert = get_model()
     if st.button("Submit"):
         customSearch = CustomSearch()
         result = customSearch.getAnswer(str(question),reader_bert)
-    st.success('The output is {}'.format(result))
+    st.success('{}'.format(result))
     if st.button("About"):
         st.text("Lets Learn")
         st.text("Built with Streamlit")
