@@ -10,13 +10,9 @@ from haystack.utils import clean_wiki_text, convert_files_to_docs
 # An in-memory TfidfRetriever based on Pandas dataframes
 from haystack.nodes import TfidfRetriever
 from haystack.pipelines import ExtractiveQAPipeline
-from haystack.nodes import FARMReader
 
 
 class CustomSearch:
-
-    def __init__(self):
-        self.reader_bert = FARMReader(model_name_or_path="distilbert-base-uncased-distilled-squad", use_gpu=True)
 
     def updateDataFiles(self, doc_dir):
         dirpath = Path('data') / 'files'
@@ -41,7 +37,7 @@ class CustomSearch:
             f.write(data_file['answers'][ind])
             f.close()
 
-    def getAnswer(self, search_query):
+    def getAnswer(self, search_query, reader_bert):
 
         doc_dir = "data/files/"
         self.updateDataFiles(doc_dir)
@@ -52,7 +48,7 @@ class CustomSearch:
         document_store_custom.write_documents(docs)
         # An in-memory TfidfRetriever based on Pandas dataframes
         retriever_custom = TfidfRetriever(document_store=document_store_custom)
-        pipe_custom = ExtractiveQAPipeline(self.reader_bert, retriever_custom)
+        pipe_custom = ExtractiveQAPipeline(reader_bert, retriever_custom)
         print("***********************************" + search_query + "****************************************")
         prediction = pipe_custom.run(query=search_query, params={"Retriever": {"top_k": 5}, "Reader": {"top_k": 1}})
 
